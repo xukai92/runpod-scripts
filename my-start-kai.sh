@@ -1,3 +1,6 @@
+#!/usr/bin/env bash
+
+# prepare directory for installation scripts
 mkdir -p $HOME/tmp
 cd $HOME/tmp
 
