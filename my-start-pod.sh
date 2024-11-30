@@ -10,7 +10,7 @@ NONINTERACTIVE=1 bash install-brew.sh
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # install fish
-brew install fish
+HOMEBREW_NO_INSTALL_CLEANUP=1 brew install fish
 
 # set fish as default shell
 chsh -s /home/linuxbrew/.linuxbrew/bin/fish
