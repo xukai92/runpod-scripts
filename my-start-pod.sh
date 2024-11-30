@@ -21,7 +21,8 @@ fish -c "source fisher.fish; fisher install jorgebucaran/fisher; fisher install 
 
 # install Mamba
 curl -LO https://github.com/conda-forge/miniforge/releases/download/24.9.2-0/Miniforge3-Linux-x86_64.sh
-bash Miniforge3-Linux-x86_64.sh -b -p $HOME/.conda -b
+bash Miniforge3-Linux-x86_64.sh -b -p /workspace/.conda -b
+ln -s /workspace/.conda $HOME/.conda
 $HOME/.conda/bin/mamba init fish
 
 # create SSH key
