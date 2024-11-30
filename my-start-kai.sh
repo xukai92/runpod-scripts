@@ -27,5 +27,5 @@ bash Miniforge3-Linux-x86_64.sh -b -p $HOME/.conda -b
 $HOME/.conda/bin/mamba init fish
 
 # create SSH key
-ssh-keygen -t ed25519 -C "kai@runpod" -f $HOME/.ssh/id_ed25519 -N ""
+ssh-keygen -t ed25519 -C "pod@runpod" -f $HOME/.ssh/id_ed25519 -N ""
 cat $HOME/.ssh/id_ed25519.pub
