@@ -21,10 +21,15 @@ fish -c "source fisher.fish; fisher install jorgebucaran/fisher; fisher install 
 
 # install Mamba
 curl -LO https://github.com/conda-forge/miniforge/releases/download/24.9.2-0/Miniforge3-Linux-x86_64.sh
-bash Miniforge3-Linux-x86_64.sh -b -p /workspace/.conda -b
+bash Miniforge3-Linux-x86_64.sh -b -p /workspace/.conda -b -u
 ln -s /workspace/.conda $HOME/.conda
 $HOME/.conda/bin/mamba init fish
 
 # create SSH key
-ssh-keygen -t ed25519 -C "pod@runpod" -f $HOME/.ssh/id_ed25519 -N ""
+if [ -d /workspace/.ssh ] && [ -f /workspace/.ssh/id_ed25519 ] && [ -f /workspace/.ssh/id_ed25519.pub ]; then
+    cp /workspace/.ssh/id_ed25519* $HOME/.ssh/
+else
+    ssh-keygen -t ed25519 -C "pod@runpod" -f $HOME/.ssh/id_ed25519 -N ""
+    mkdir -p /workspace/.ssh && cp $HOME/.ssh/id_ed25519* /workspace/.ssh/
+fi
 cat $HOME/.ssh/id_ed25519.pub
