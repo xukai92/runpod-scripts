@@ -10,6 +10,10 @@ brew install fish
 # set fish as default shell
 chsh -s /home/linuxbrew/.linuxbrew/bin/fish
 
+# install fisher
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+fisher install jhillyerd/plugin-git
+
 # install Mamba
 curl -LO https://github.com/conda-forge/miniforge/releases/download/24.9.2-0/Miniforge3-Linux-x86_64.sh
 bash Miniforge3-Linux-x86_64.sh -b -p /home/kai/.conda -f
