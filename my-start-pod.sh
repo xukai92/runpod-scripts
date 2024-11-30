@@ -4,6 +4,18 @@
 mkdir -p $HOME/tmp
 cd $HOME/tmp
 
+# link /workspace/.config to $HOME
+if [ ! -d /workspace/.config ]; then
+    mkdir -p /workspace/.config
+fi
+ln -s /workspace/.config $HOME/.config
+
+# link /workspace/.cursor-server to $HOME
+if [ ! -d $HOME/.cursor-server ]; then
+    mkdir -p $HOME/.cursor-server
+fi
+ln -s /workspace/.cursor-server $HOME/.cursor-server
+
 # install Homebrew
 curl -L https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh > install-brew.sh
 NONINTERACTIVE=1 bash install-brew.sh
@@ -11,6 +23,7 @@ eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
 # install fish
 HOMEBREW_NO_INSTALL_CLEANUP=1 brew install fish
+echo "eval \"\$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)\"" >> $HOME/.config/fish/config.fish
 
 # set fish as default shell
 chsh -s /home/linuxbrew/.linuxbrew/bin/fish
