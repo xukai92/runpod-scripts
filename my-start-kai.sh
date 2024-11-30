@@ -1,5 +1,5 @@
 # install Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)" --force
 
 # post Homebrew
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
